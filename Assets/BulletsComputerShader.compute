@@ -1,0 +1,30 @@
+﻿
+#pragma kernel CSMain
+
+// 弾の構造体
+//構造体は、若干classと似ている。
+struct Bullet
+{
+	float3 pos;
+	float3 accel;
+	float4 col;
+};
+
+// 前回の更新からの経過時間
+float DeltaTime;
+
+// 弾の構造化バッファ
+//RWStructuredBufferは、構造体配列用のバッファ
+RWStructuredBuffer<Bullet> Bullets;
+
+// (8, 1, 1)のスレッドで回す
+//numthreadsは、computeShader１回分のスレッド数
+//下だと、8"*1*1回回せる。
+//今回は、一次元配列
+[numthreads(8, 1, 1)]
+//SV_DispatchThreadIDは、ある特定の　場所に実行される感じ？
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+	// それぞれの位置情報に移動ベクトルを加算
+	Bullets[id.x].pos += Bullets[id.x].accel * DeltaTime;
+}
