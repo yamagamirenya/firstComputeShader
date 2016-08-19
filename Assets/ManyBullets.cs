@@ -144,7 +144,6 @@ public class ManyBullets: MonoBehaviour
         bulletsBuffer.SetData(bullets);
     }
 
-
     void InitializeComputeBuffer2()
     {
         // 弾数は1万個
@@ -165,7 +164,6 @@ public class ManyBullets: MonoBehaviour
         bulletsBuffer.SetData(bullets);
     }
 
-
     void InitializeComputeBuffer3()
     {
         // 弾数は1万個
@@ -185,10 +183,6 @@ public class ManyBullets: MonoBehaviour
         // バッファに適応
         bulletsBuffer.SetData(bullets);
     }
-
-
-    
-
 
     void InitializeComputeBuffer4()
     {
@@ -218,11 +212,14 @@ public class ManyBullets: MonoBehaviour
                     new Vector3(Random.Range(-1.0f, 1.0f)*0.3f, Random.Range(-1.0f, 1.0f)*0.3f, Random.Range(-1.0f, 1.0f)) * 0.3f,
                     new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)));
 
+            
             x = xAnswer;
             y = yAnswer;
             z = zAnswer;
 
         }
+
+     
 
 
         // バッファに適応

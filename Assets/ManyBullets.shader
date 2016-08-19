@@ -97,7 +97,7 @@ Shader "Custom/MenyBullets" {
 	fixed4 frag(VSOut i) : COLOR
 	{
 		// 出力はテクスチャカラーと頂点色
-		float4 col = tex2D(_MainTex, i.tex) ;
+		float4 col = tex2D(_MainTex, i.tex)*i.col ;
 
 		// アルファが一定値以下なら中断
 		if (col.a < 0.3) discard;
